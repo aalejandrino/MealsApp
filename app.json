@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "RN Guide",
-    "slug": "rn-complete-guide",
+    "name": "Blank Template",
+    "slug": "hello",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Text, View } from 'react-native';
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
-import MealsNavigator from './navigation/MealsNavigator';
+import React, { useState } from "react";
+import { Text, View } from "react-native";
+// import "react-native-gesture-handler";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
+import MealsNavigator from "./navigation/MealsNavigator";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -12,14 +13,16 @@ const fetchFonts = () => {
 };
 
 export default function App() {
-  
   const [fontLoaded, setFontLoaded] = useState(false);
 
-  if(!fontLoaded) {
+  if (!fontLoaded) {
     return (
-      <AppLoading startAsync={fetchFonts} onFinish={() => setFontLoaded(true)}/>
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontLoaded(true)}
+      />
     );
-  };
+  }
 
   return <MealsNavigator />;
-};
+}
