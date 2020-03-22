@@ -8,7 +8,19 @@ import MealItem from "../components/MealItem";
 
 const CategoryMealsScreen = props => {
   const renderMealItem = itemData => {
-    return <MealItem itemData={itemData} onSelectMeal={() => {}} />;
+    return (
+      <MealItem
+        itemData={itemData}
+        onSelectMeal={() => {
+          props.navigation.navigate({
+            routeName: "MealDetail",
+            params: {
+              mealId: itemData.item.id
+            }
+          });
+        }}
+      />
+    );
   };
 
   const catId = props.navigation.getParam("categoryId");

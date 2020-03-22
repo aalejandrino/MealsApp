@@ -1,19 +1,29 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
+import { MEALS } from "../data/dummy-data";
+
 const MealDetailScreen = props => {
+  const mealId = props.navigation.getParam("mealId");
+
+  let selectedMeal = MEALS.find(meal => meal.id === mealId);
+
   return (
     <View style={styles.screen}>
-      <Text> The Meal Detail Screen! </Text>
+      <Text> {selectedMeal.title} </Text>
       <Text> Success !! </Text>
-      <Button
-        title="Go to Category Screen"
-        onPress={() => {
-          props.navigation.navigate({ routeName: "Categories" });
-        }}
-      />
     </View>
   );
+};
+
+MealDetailScreen.navigationOptions = navData => {
+  const mealId = navData.navigation.getParam("mealId");
+
+  let selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+  return {
+    headerTitle: selectedMeal.title
+  };
 };
 
 const styles = StyleSheet.create({

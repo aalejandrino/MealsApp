@@ -17,8 +17,6 @@ const MealItem = props => {
     imageUrl
   } = props.itemData.item;
 
-  console.log(imageUrl);
-
   return (
     <View style={styles.mealItem}>
       <TouchableOpacity onPress={props.onSelectMeal}>
