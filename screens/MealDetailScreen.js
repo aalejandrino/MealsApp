@@ -22,7 +22,8 @@ MealDetailScreen.navigationOptions = navData => {
   let selectedMeal = MEALS.find(meal => meal.id === mealId);
 
   return {
-    headerTitle: selectedMeal.title
+    headerTitle: selectedMeal.title,
+    headerRight: <Text>Favorite!</Text>
   };
 };
 
