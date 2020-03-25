@@ -25,7 +25,7 @@ MealDetailScreen.navigationOptions = navData => {
 
   return {
     headerTitle: selectedMeal.title,
-    headerRight: (
+    headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Favorite"
