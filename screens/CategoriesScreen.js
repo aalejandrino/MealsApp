@@ -52,7 +52,6 @@ CategoriesScreen.navigationOptions = navData => {
           title="Menu"
           iconName="ios-menu"
           onPress={() => {
-            console.log("menu opened");
             navData.navigation.toggleDrawer();
           }}
         ></Item>
