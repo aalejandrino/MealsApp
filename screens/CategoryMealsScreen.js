@@ -1,11 +1,8 @@
 import React from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
 
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 
-import MealItem from "../components/MealItem";
 import MealList from "../components/MealList";
-// import Meal from "../models/Meal";
 
 const CategoryMealsScreen = props => {
   const catId = props.navigation.getParam("categoryId");
@@ -26,13 +23,5 @@ CategoryMealsScreen.navigationOptions = navData => {
     headerTitle: selectedCategory.title
   };
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
-});
 
 export default CategoryMealsScreen;
