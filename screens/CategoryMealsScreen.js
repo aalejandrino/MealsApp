@@ -4,41 +4,17 @@ import { View, Text, FlatList, StyleSheet } from "react-native";
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 
 import MealItem from "../components/MealItem";
+import MealList from "../components/MealList";
 // import Meal from "../models/Meal";
 
 const CategoryMealsScreen = props => {
-  const renderMealItem = itemData => {
-    return (
-      <MealItem
-        itemData={itemData}
-        onSelectMeal={() => {
-          props.navigation.navigate({
-            routeName: "MealDetail",
-            params: {
-              mealId: itemData.item.id
-            }
-          });
-        }}
-      />
-    );
-  };
-
   const catId = props.navigation.getParam("categoryId");
 
   const displayedMeals = MEALS.filter(meal => {
     return meal.categoryIds.indexOf(catId) >= 0;
   });
 
-  return (
-    <View style={styles.screen}>
-      <FlatList
-        data={displayedMeals}
-        keyExtractor={(item, index) => item.id}
-        renderItem={renderMealItem}
-        style={{ width: "100%" }}
-      />
-    </View>
-  );
+  return <MealList listData={displayedMeals} navigation={props.navigation} />;
 };
 
 CategoryMealsScreen.navigationOptions = navData => {
