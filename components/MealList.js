@@ -5,6 +5,8 @@ import MealItem from "./MealItem";
 
 const MealList = props => {
   const renderMealItem = itemData => {
+    const mealTitle = itemData.item.title;
+
     return (
       <MealItem
         itemData={itemData}
@@ -12,7 +14,8 @@ const MealList = props => {
           props.navigation.navigate({
             routeName: "MealDetail",
             params: {
-              mealId: itemData.item.id
+              mealId: itemData.item.id,
+              mealTitle
             }
           });
         }}
