@@ -16,6 +16,7 @@ enableScreens();
 const rootReducer = combineReducers({
   meals: mealsReducer
 });
+
 const store = createStore(rootReducer);
 
 const fetchFonts = () => {

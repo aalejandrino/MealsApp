@@ -13,7 +13,9 @@ import MealList from "../components/MealList";
 const FavoritesScreen = props => {
   // const favMeals = MEALS.filter(meal => meal.id == "m1" || meal.id == "m2");
 
-  const availableMeals = useSelector(state => state.meals.favoriteMeals);
+  const availableMeals = useSelector(state => {
+    return state.meals.favoriteMeals;
+  });
 
   return <MealList listData={availableMeals} navigation={props.navigation} />;
 };
