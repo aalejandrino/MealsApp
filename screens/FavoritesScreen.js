@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import DefaultText from "../components/DefaultText";
 
 import { useSelector } from "react-redux";
 
@@ -13,11 +14,19 @@ import MealList from "../components/MealList";
 const FavoritesScreen = props => {
   // const favMeals = MEALS.filter(meal => meal.id == "m1" || meal.id == "m2");
 
-  const availableMeals = useSelector(state => {
+  const favoriteMeals = useSelector(state => {
     return state.meals.favoriteMeals;
   });
 
-  return <MealList listData={availableMeals} navigation={props.navigation} />;
+  if (favoriteMeals.length < 1) {
+    return (
+      <View style={styles.empty}>
+        <DefaultText>Your Favorites list is Empty!</DefaultText>
+      </View>
+    );
+  }
+
+  return <MealList listData={favoriteMeals} navigation={props.navigation} />;
 };
 
 FavoritesScreen.navigationOptions = navData => {
@@ -36,5 +45,13 @@ FavoritesScreen.navigationOptions = navData => {
     )
   };
 };
+
+const styles = StyleSheet.create({
+  empty: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
 
 export default FavoritesScreen;
